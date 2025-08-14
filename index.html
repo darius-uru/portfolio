@@ -14,8 +14,6 @@
       --shadow: 0 2px 8px rgba(0,0,0,0.12);
       --radius: 12px;
     }
-
-    /* Page */
     body {
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
@@ -27,25 +25,38 @@
       margin: 40px auto;
       padding: 0 20px 40px;
     }
+    h1, h2, h3 {
+      color: var(--heading);
+      margin: 0 0 10px;
+    }
 
-    /* Header */
-    h1, h2, h3 { color: var(--heading); margin: 0 0 10px; }
-    header { text-align: center; margin-bottom: 28px; }
+    /* Header flex layout */
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap; /* stacks on small screens */
+    }
+    .header-left {
+      flex: 1 1 220px;
+    }
+    .header-right {
+      flex: 2 1 300px;
+    }
     .profile-img {
-      max-width: 260px;
+      max-width: 240px;
       height: auto;
       display: block;
-      margin: 12px auto 16px;
-      border-radius: 8px;               /* non-circle, slightly rounded corners */
+      border-radius: 8px;
       box-shadow: var(--shadow);
     }
     .tagline {
-      max-width: 760px;
-      margin: 0 auto 24px;
       line-height: 1.5;
+      margin-top: 8px;
     }
 
-    /* Sections */
+    /* Project section */
     section { margin-top: 24px; }
     .card {
       background: var(--card-bg);
@@ -60,17 +71,8 @@
       border-radius: 8px;
       margin: 8px 0 10px;
     }
-
-    /* Projects grid (stays one column on narrow screens) */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
     a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
-
     footer {
       text-align: center;
       margin-top: 36px;
@@ -81,40 +83,28 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Darius Gichuru</h1>
-
-      <!-- Profile photo (file in repo root named "linkedin pp.jpg") -->
-      <img src="linkedin%20pp.jpg" alt="Photo of Darius Gichuru" class="profile-img" loading="lazy" decoding="async">
-
-      <p class="tagline">
-        Dual-degree student in Applied Physics and Aerospace Engineering at UMD. Passionate about aerospace systems, aerodynamics, and CFD. Seeking R&amp;D roles and graduate studies.
-      </p>
-    </header>
+    <!-- Flex header -->
+    <div class="header-flex">
+      <div class="header-left">
+        <h1>Darius Gichuru</h1>
+        <img src="linkedin%20pp.jpg" alt="Photo of Darius Gichuru" class="profile-img" loading="lazy" decoding="async">
+      </div>
+      <div class="header-right">
+        <p class="tagline">
+          Dual-degree student in Applied Physics and Aerospace Engineering at UMD. Passionate about aerospace systems, aerodynamics, and CFD. Seeking R&amp;D roles and graduate studies.
+        </p>
+      </div>
+    </div>
 
     <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
-
-      <div class="grid">
-        <!-- Project 1: your existing climate analysis -->
-        <article class="card">
-          <h3>Global Surface Temperature Analysis</h3>
-          <p>Used Python to process and visualize 170+ years of climate data. Analyzed long‑term warming trends using data from Berkeley Earth.</p>
-          <img src="surface_temp_trends.png" alt="Global monthly temperature anomaly plot with linear trend">
-          <p><a href="https://github.com/darius-uru/surface-temp-trends" target="_blank" rel="noopener">View on GitHub</a></p>
-        </article>
-
-        <!-- TEMPLATE: Duplicate this block for more projects -->
-        <!--
-        <article class="card">
-          <h3>Project Title</h3>
-          <p>1–2 sentence summary of what you built, why, and the tech you used.</p>
-          <img src="images/your_screenshot.png" alt="Screenshot of Project Title">
-          <p><a href="https://github.com/your-user/your-repo" target="_blank" rel="noopener">View on GitHub</a></p>
-        </article>
-        -->
-      </div>
+      <article class="card">
+        <h3>Global Surface Temperature Analysis</h3>
+        <p>Used Python to process and visualize 170+ years of climate data. Analyzed long-term warming trends using data from Berkeley Earth.</p>
+        <img src="surface_temp_trends.png" alt="Global monthly temperature anomaly plot with linear trend">
+        <p><a href="https://github.com/darius-uru/surface-temp-trends" target="_blank" rel="noopener">View on GitHub</a></p>
+      </article>
     </section>
 
     <!-- Contact -->
@@ -131,7 +121,6 @@
   </div>
 
   <script>
-    // simple current-year footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
