@@ -1,59 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Darius Gichuru | Portfolio</title>
   <style>
+    :root {
+      --bg: #f4f4f4;
+      --text: #333;
+      --heading: #2e3b4e;
+      --card-bg: #fff;
+      --link: #1a73e8;
+      --shadow: 0 2px 8px rgba(0,0,0,0.12);
+      --radius: 12px;
+    }
+
+    /* Page */
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      margin: 0;
+    }
+    .container {
+      max-width: 900px;
       margin: 40px auto;
-      padding: 20px;
-      background-color: #f4f4f4;
-      color: #333;
+      padding: 0 20px 40px;
     }
-    h1, h2 {
-      color: #2e3b4e;
-    }
-    .project {
-      margin-bottom: 30px;
-      padding: 15px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    a {
-      color: #1a73e8;
-      text-decoration: none;
-    }
-    /* Optional: make image circular */
+
+    /* Header */
+    h1, h2, h3 { color: var(--heading); margin: 0 0 10px; }
+    header { text-align: center; margin-bottom: 28px; }
     .profile-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
+      max-width: 260px;
+      height: auto;
       display: block;
-      margin: 10px auto;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      margin: 12px auto 16px;
+      border-radius: 8px;               /* non-circle, slightly rounded corners */
+      box-shadow: var(--shadow);
+    }
+    .tagline {
+      max-width: 760px;
+      margin: 0 auto 24px;
+      line-height: 1.5;
+    }
+
+    /* Sections */
+    section { margin-top: 24px; }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      margin: 14px 0;
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 8px 0 10px;
+    }
+
+    /* Projects grid (stays one column on narrow screens) */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      margin-top: 36px;
+      font-size: 0.95rem;
+      opacity: 0.85;
     }
   </style>
 </head>
 <body>
-  <h1>Darius Gichuru</h1>
+  <div class="container">
+    <header>
+      <h1>Darius Gichuru</h1>
 
-  <!-- Profile photo -->
-  <img src="linkedin%20pp.jpg" alt="Photo of Darius Gichuru" class="profile-img">
+      <!-- Profile photo (file in repo root named "linkedin pp.jpg") -->
+      <img src="linkedin%20pp.jpg" alt="Photo of Darius Gichuru" class="profile-img" loading="lazy" decoding="async">
 
-  <p>Dual-degree student in Applied Physics and Aerospace Engineering at UMD. Passionate about aerospace systems, aerodynamics, and CFD. Seeking R&D roles and graduate studies.</p>
+      <p class="tagline">
+        Dual-degree student in Applied Physics and Aerospace Engineering at UMD. Passionate about aerospace systems, aerodynamics, and CFD. Seeking R&amp;D roles and graduate studies.
+      </p>
+    </header>
 
-  <div class="project">
-    <h3>Global Surface Temperature Analysis</h3>
-    <p>Used Python to process and visualize 170+ years of climate data. Analyzed long-term warming trends using data from Berkeley Earth.</p>
-    <img src="surface_temp_trends.png" alt="Temperature Trend Plot" width="100%">
-    <a href="https://github.com/darius-uru/surface-temp-trends">View on GitHub</a>
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="grid">
+        <!-- Project 1: your existing climate analysis -->
+        <article class="card">
+          <h3>Global Surface Temperature Analysis</h3>
+          <p>Used Python to process and visualize 170+ years of climate data. Analyzed long‑term warming trends using data from Berkeley Earth.</p>
+          <img src="surface_temp_trends.png" alt="Global monthly temperature anomaly plot with linear trend">
+          <p><a href="https://github.com/darius-uru/surface-temp-trends" target="_blank" rel="noopener">View on GitHub</a></p>
+        </article>
+
+        <!-- TEMPLATE: Duplicate this block for more projects -->
+        <!--
+        <article class="card">
+          <h3>Project Title</h3>
+          <p>1–2 sentence summary of what you built, why, and the tech you used.</p>
+          <img src="images/your_screenshot.png" alt="Screenshot of Project Title">
+          <p><a href="https://github.com/your-user/your-repo" target="_blank" rel="noopener">View on GitHub</a></p>
+        </article>
+        -->
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p><a href="https://www.linkedin.com/in/dariusgichuru/" target="_blank" rel="noopener">LinkedIn</a></p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Darius Gichuru
+    </footer>
   </div>
 
-  <h2>Contact</h2>
-  <p><a href="https://www.linkedin.com/in/dariusgichuru/">LinkedIn</a></p>
+  <script>
+    // simple current-year footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
