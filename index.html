@@ -4,121 +4,156 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Darius Gichuru | Portfolio</title>
+
+  <!-- Basic SEO / share preview -->
+  <meta name="description" content="Darius Gichuru — Applied Physics & Aerospace Engineering at UMD. Interests: aerodynamics, CFD, hypersonics.">
+  <meta property="og:title" content="Darius Gichuru | Portfolio">
+  <meta property="og:description" content="Applied Physics & Aerospace Engineering at UMD. Aerodynamics, CFD, hypersonics.">
+  <meta property="og:type" content="website">
+
   <style>
-    :root {
-      --bg: #f4f4f4;
-      --text: #333;
-      --heading: #2e3b4e;
-      --card-bg: #fff;
-      --link: #1a73e8;
-      --shadow: 0 2px 8px rgba(0,0,0,0.12);
-      --radius: 12px;
+    :root{
+      --bg:#f4f4f4;
+      --card:#fff;
+      --text:#2b2b2b;
+      --muted:#586070;
+      --heading:#2e3b4e;
+      --link:#1a73e8;
+      --shadow:0 2px 12px rgba(0,0,0,.10);
+      --radius:14px;
+      --maxw:1000px;
     }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      margin: 0;
-    }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px 40px;
-    }
-    h1, h2, h3 {
-      color: var(--heading);
-      margin: 0 0 10px;
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0f141a;
+        --card:#111820;
+        --text:#e8eef5;
+        --muted:#9fb0c2;
+        --heading:#cfe0ff;
+        --link:#7cb0ff;
+        --shadow:0 2px 12px rgba(0,0,0,.35);
+      }
     }
 
-    /* Header flex layout */
-    .header-flex {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap; /* stacks on small screens */
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:0 20px 44px}
+    h1{font-weight:700;color:var(--heading);font-size:clamp(1.8rem,2.2vw,2.4rem);margin:0 0 8px}
+    h2{color:var(--heading);font-size:clamp(1.4rem,1.6vw,1.6rem);margin:26px 0 10px}
+    h3{color:var(--heading);font-size:1.05rem;margin:0 0 6px}
+
+    /* Header layout */
+    .header{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items:center;
+      gap:24px;
+      margin-bottom:14px;
     }
-    .header-left {
-      flex: 1 1 220px;
+    .tagline{color:var(--muted);line-height:1.55;margin:0}
+    .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      background:var(--card);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:10px;
+      box-shadow:var(--shadow);
+      font-size:.95rem;
     }
-    .header-right {
-      flex: 2 1 300px;
-    }
-    .profile-img {
-      max-width: 240px;
-      height: auto;
-      display: block;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-    .tagline {
-      line-height: 1.5;
-      margin-top: 8px;
+    .btn:hover{transform:translateY(-1px)}
+    .photo{
+      width:min(320px,100%);
+      border-radius:12px;              /* non-circle but tidy */
+      box-shadow:var(--shadow);
+      display:block;
+      margin-left:auto;
     }
 
-    /* Project section */
-    section { margin-top: 24px; }
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 16px;
-      margin: 14px 0;
+    /* Sections / cards */
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
     }
-    .card img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin: 8px 0 10px;
+    .projects{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:16px;
     }
-    a { color: var(--link); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    footer {
-      text-align: center;
-      margin-top: 36px;
-      font-size: 0.95rem;
-      opacity: 0.85;
+    @media (min-width: 860px){
+      .projects{grid-template-columns: 1fr 1fr;}
+    }
+    .card img{width:100%;height:auto;border-radius:10px;margin:8px 0 6px}
+
+    footer{text-align:center;margin-top:34px;opacity:.8;font-size:.95rem}
+    .subtle{opacity:.85}
+    @media (max-width: 720px){
+      .header{grid-template-columns: 1fr; align-items:start}
+      .photo{margin:0 auto}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Flex header -->
-    <div class="header-flex">
-      <div class="header-left">
+  <main class="wrap">
+
+    <!-- Header: name + statement (left) | photo (right) -->
+    <header class="header">
+      <div>
         <h1>Darius Gichuru</h1>
-        <img src="linkedin%20pp.jpg" alt="Photo of Darius Gichuru" class="profile-img" loading="lazy" decoding="async">
-      </div>
-      <div class="header-right">
         <p class="tagline">
           Dual-degree student in Applied Physics and Aerospace Engineering at UMD. Passionate about aerospace systems, aerodynamics, and CFD. Seeking R&amp;D roles and graduate studies.
         </p>
+        <div class="btnrow">
+          <a class="btn" href="https://www.linkedin.com/in/dariusgichuru/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/darius-uru" target="_blank" rel="noopener">GitHub</a>
+          <!-- Optional: replace resume.pdf with your file path -->
+          <!-- <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume</a> -->
+          <a class="btn" href="mailto:darius.gichuru@example.com">Email</a>
+        </div>
       </div>
-    </div>
+
+      <img src="linkedin%20pp.jpg" alt="Photo of Darius Gichuru" class="photo" loading="lazy" decoding="async">
+    </header>
 
     <!-- Projects -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <article class="card">
-        <h3>Global Surface Temperature Analysis</h3>
-        <p>Used Python to process and visualize 170+ years of climate data. Analyzed long-term warming trends using data from Berkeley Earth.</p>
-        <img src="surface_temp_trends.png" alt="Global monthly temperature anomaly plot with linear trend">
-        <p><a href="https://github.com/darius-uru/surface-temp-trends" target="_blank" rel="noopener">View on GitHub</a></p>
-      </article>
+    <section aria-labelledby="projects-title">
+      <h2 id="projects-title">Projects</h2>
+
+      <div class="projects">
+        <!-- Card 1 -->
+        <article class="card">
+          <h3>Global Surface Temperature Analysis</h3>
+          <p class="subtle">Used Python to process and visualize 170+ years of climate data. Analyzed long‑term warming trends using data from Berkeley Earth.</p>
+          <img src="surface_temp_trends.png" alt="Global monthly temperature anomaly plot with linear trend">
+          <p><a href="https://github.com/darius-uru/surface-temp-trends" target="_blank" rel="noopener">View on GitHub</a></p>
+        </article>
+
+        <!-- TEMPLATE — copy this block for more projects -->
+        <!--
+        <article class="card">
+          <h3>Project Title</h3>
+          <p class="subtle">What it does, why you built it, and tech used (Python, C++, MATLAB, etc.).</p>
+          <img src="images/project_screenshot.png" alt="Screenshot of Project Title">
+          <p><a href="https://github.com/your-user/your-repo" target="_blank" rel="noopener">View on GitHub</a></p>
+        </article>
+        -->
+      </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact">
-      <h2>Contact</h2>
+    <section aria-labelledby="contact-title" style="margin-top:26px">
+      <h2 id="contact-title">Contact</h2>
       <div class="card">
         <p><a href="https://www.linkedin.com/in/dariusgichuru/" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
     </section>
 
-    <footer>
-      © <span id="year"></span> Darius Gichuru
-    </footer>
-  </div>
+    <footer>© <span id="year"></span> Darius Gichuru</footer>
+  </main>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
