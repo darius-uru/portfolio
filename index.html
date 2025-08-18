@@ -85,6 +85,24 @@
       .header{grid-template-columns: 1fr; align-items:start}
       .photo{margin:0 auto}
     }
+    /* Skills layout */
+.skills{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap:16px;
+}
+.tags{
+  display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 2px;
+}
+.tag{
+  background:var(--card);
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:999px;
+  padding:6px 10px;
+  box-shadow:var(--shadow);
+  font-size:.92rem;
+  color:var(--muted);
+}
   </style>
 </head>
 <body>
@@ -95,12 +113,12 @@
       <div>
         <h1>Darius Gichuru</h1>
         <p class="tagline">
-          Dual-degree student in Aerospace Engineering and Applied Physics at UMD. Passionate about propulsion, aerodynamics, and simulations and modeling, with a strong interest in the intersection of advanced aerospace systems and modern physics, such as the application of plasma. Preparing for graduate research opportunities in aerospace engineering and applied physics.
+          Dual-degree student in Aerospace Engineering and Applied Physics at UMD. Passionate about propulsion, aerodynamics, and simulations, with a strong interest in the intersection of advanced aerospace systems and modern physics, such as the application of plasma. Preparing for graduate research opportunities in aerospace engineering and applied physics.
 
 
         </p>
         <div class="btnrow">
-          <a class="btn" href="https://www.linkedin.com/in/dariusgichuru/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://www.linkedin.com/in/dariusgichuru" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn" href="https://github.com/darius-uru" target="_blank" rel="noopener">GitHub</a>
           <!-- Optional: replace resume.pdf with your file path -->
           <!-- <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume</a> -->
@@ -111,6 +129,49 @@
       <img src="linkedin%20pp.jpg" alt="Photo of Darius Gichuru" class="photo" loading="lazy" decoding="async">
     </header>
 
+<section aria-labelledby="skills-title">
+  <h2 id="skills-title">Skills</h2>
+  <div class="skills">
+    <article class="card">
+      <h3>Programming</h3>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">MATLAB</span>
+        <span class="tag">C++</span>
+        <span class="tag">LaTeX</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Simulation</h3>
+      <div class="tags">
+        <span class="tag">Simulink</span>
+        <span class="tag">Ansys Fluent (beginner)</span>
+        <span class="tag">Fusion 360</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Laboratory</h3>
+      <div class="tags">
+        <span class="tag">Oscilloscope</span>
+        <span class="tag">Data Acquisition</span>
+        <span class="tag">Data Analysis</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Fabrication</h3>
+      <div class="tags">
+        <span class="tag">3D Printing</span>
+        <span class="tag">Laser Cutting</span>
+        <span class="tag">Soldering</span>
+        <span class="tag">Power Tools</span>
+      </div>
+    </article>
+  </div>
+</section>
+    
     <!-- Projects -->
     <section aria-labelledby="projects-title">
       <h2 id="projects-title">Research & Projects</h2>
